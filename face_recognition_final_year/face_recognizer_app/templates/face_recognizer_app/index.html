@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'face_recognizer_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'face_recognizer_app/css/style.css' %}">
+
+    <title>Automated Authentication Using Face Recognition</title>
+  </head>
+  <body>
+   
+      <div class="container">
+        <h1 class="display-4 text-center mt-5 mb-5"> Automated Authentication System Using Face Recognition</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                      <h2 class="text-center dash-title">Mark Attendance</h2>
+                      <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/mark_attendance.svg' %}">
+                      <a href="#" class="btn btn-outline-success btn-block">Mark Attendance</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                      <h2 class="text-center dash-title">Register</h2>
+                      <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/register.svg' %}">
+                      <a href="#" class="btn btn-outline-warning btn-block">Register</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                      <h2 class="text-center dash-title">View Report</h2>
+                      <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/report.svg' %}">
+                      <a href="#" class="btn btn-outline-danger btn-block">View</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                      <h2 class="text-center dash-title">Support</h2> 
+                      <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/help.svg' %}">
+                      <a href="#" class="btn btn-outline-primary btn-block">Support</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <h3 class="text-center mt-2">Departement of Computer Science & Application, B.S.A.C.E.T</h3>
+
+      </div>
+    
+
+    <script src="{% static 'face_recognizer_app/js/jquery.js' %}"></script>
+    <script src="{% static 'face_recognizer_app/js/bootstrap.bundle.min.js' %}"></script> 
+
+   
+  </body>
+</html>
