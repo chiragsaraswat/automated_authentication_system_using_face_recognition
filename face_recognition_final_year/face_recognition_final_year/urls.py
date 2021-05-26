@@ -20,6 +20,6 @@ from face_recognizer_app import views as face_recog_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',face_recog_views.index,name='index'),
-
-    path('face_recognizer',include('face_recognizer_app.urls')),
+    path('face_recognizer/',include('face_recognizer_app.urls')),
+    path('user_manager/', include('user_manager_app.urls')),
 ]

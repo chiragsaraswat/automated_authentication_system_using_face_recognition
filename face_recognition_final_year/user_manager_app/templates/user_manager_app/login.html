@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_manager_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_manager_app/css/style.css' %}">
+
+    <title>Automated Authentication Using Face Recognition</title>
+  </head>
+  <body>
+    {% load crispy_forms_tags %} 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4 text-center">User Login</h1>
+        </div>
+      </div>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+   
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ login_form|crispy }}
+                    <button class="btn btn-primary" type="submit">Login</button>
+                  </form>
+                  <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+
+              </div>
+              <div class="col-md-6">
+                <img  style="display: block; margin: auto;" class="img-fluid" src="{% static 'face_recognizer_app/images/login_1.svg' %}">
+              </div>
+          </div>
+       
+             </div>
+    
+
+    <script src="{% static 'user_manager_app/js/jquery.js' %}"></script>
+    <script src="{% static 'user_manager_app/js/bootstrap.bundle.min.js' %}"></script> 
+
+   
+  </body>
+</html>

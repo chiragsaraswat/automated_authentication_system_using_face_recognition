@@ -10,16 +10,42 @@
     <title>Automated Authentication Using Face Recognition</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">AASUFR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_manager_app:logout'%}">Logout</a>
+          </li>
+    
+          {% else %}
+    
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_manager_app:login'%}">Login</a>
+          </li>
+    
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
    
       <div class="container">
-        <h1 class="display-4 text-center mt-5 mb-5"> Automated Authentication System Using Face Recognition</h1>
+        <h1 class="display-4 text-center mb-5"> Automated Authentication System Using Face Recognition</h1>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
                       <h2 class="text-center dash-title">Mark Attendance</h2>
                       <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/mark_attendance.svg' %}">
-                      <a href="#" class="btn btn-outline-success btn-block">Mark Attendance</a>
+                      <a href="{% url 'face_recognizer_app:attendance'%}" class="btn btn-outline-success btn-block">Mark Attendance</a>
                     </div>
                   </div>
             </div>
@@ -28,7 +54,7 @@
                     <div class="card-body">
                       <h2 class="text-center dash-title">Register</h2>
                       <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/register.svg' %}">
-                      <a href="#" class="btn btn-outline-warning btn-block">Register</a>
+                      <a href="{% url 'user_manager_app:register'%}" class="btn btn-outline-warning btn-block">Register</a>
                     </div>
                   </div>
             </div>
@@ -39,7 +65,7 @@
                     <div class="card-body">
                       <h2 class="text-center dash-title">View Report</h2>
                       <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/report.svg' %}">
-                      <a href="#" class="btn btn-outline-danger btn-block">View</a>
+                      <a href="{% url 'face_recognizer_app:view_attendance'%}" class="btn btn-outline-danger btn-block">View</a>
                     </div>
                   </div>
             </div>
@@ -48,7 +74,7 @@
                     <div class="card-body">
                       <h2 class="text-center dash-title">Support</h2> 
                       <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/help.svg' %}">
-                      <a href="#" class="btn btn-outline-primary btn-block">Support</a>
+                      <a href="{% url 'face_recognizer_app:support'%}" class="btn btn-outline-primary btn-block">Support</a>
                     </div>
                   </div>
             </div>
