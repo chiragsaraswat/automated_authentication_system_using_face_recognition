@@ -11,7 +11,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">AASUFR</a>
+        <a class="navbar-brand" href="{% url 'face_recognizer_app:index'%}">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,19 +41,31 @@
           <h1 class="display-4 text-center">Help & Support</h1>
         </div>
       </div>
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      
    
       <div class="container">
           <div class="row">
               <div class="col-md-6">
-                <form>
+                <form method="POST">
+                  {% csrf_token %}
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Email address</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      <input type="email" name='email' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
                     
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Related Category</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select name='category' class="form-control" id="exampleFormControlSelect1">
                         <option>Forgot Password</option>
                         <option>Can not Register</option>
                         <option>Can not Login</option>
@@ -63,12 +75,8 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Please Describe Your Problem In Detail</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <textarea  name = "message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Please Upload Your Appropriate Identity Proof</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                      </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
                   </form>  
               </div>

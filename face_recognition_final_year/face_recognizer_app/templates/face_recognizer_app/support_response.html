@@ -38,12 +38,29 @@
     </nav>
 
     <div class="container">
-      <img  style="display: block; margin: auto;" class="img-fluid mt-2" src="{% static 'face_recognizer_app/images/support.svg' %}">
-      <h1 class="display-4 text-capitalize text-center">Attendance has been Marked For {{username}} at {{time}}</h1>
-      <div class="text-center">
-        <a href="{% url 'face_recognizer_app:view_attendance'%}" class="btn btn-success text-center">View Attendance</a>
- 
-      </div>
+      <img  style="display: block; margin: auto;" class="img-fluid mt-2" src="{% static 'face_recognizer_app/images/support_response.svg' %}">
+      <h2 class="display-4 text-capitalize text-center">Your Query Has Been Submitted, We will get to you Soon!</h1>
+      <h2>Your Query Was:</h2>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Email Address</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{email}}</th>
+                <td>{{ subject }}</td>
+                <td>{{ message }}</td>
+            </tr>
+
+         
+        </tbody>
+      </table>
+
+      
          </div>
     
    

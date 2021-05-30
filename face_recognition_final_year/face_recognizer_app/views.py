@@ -3,19 +3,36 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from user_manager_app.models import Attendance
-import xlwt
+from django.conf import settings
+from django.core.mail import send_mail
+from django.contrib import messages 
+
 
 
 # Create your views here.
 
 def index(request):
 	return render(request, 'face_recognizer_app/index.html')
-# def home(request):
-#     return render(request, 'face_recognizer_app/home.html')
+
 
 @login_required(login_url='/user_manager/login', redirect_field_name=None)
 def support(request):
+	if request.method == "POST":
+		email = request.POST.get('email')
+		subject = request.POST.get('category')
+		message = request.POST.get('message')
+		new_message = f'{email}    {message}'
+		email_from = settings.EMAIL_HOST_USER
+		recipient_list = ['csaraswat87@gmail.com' ]
+		print(email,subject,message,email_from)
+		if email and message is not None:
+			send_mail( subject, new_message, email_from, recipient_list )
+			context = {'email':email, 'message':message, 'subject':subject }
+			return render(request=request, template_name="face_recognizer_app/support_response.html", context = context)
+		else:
+			messages.error(request,"Invalid Email!")
 	return render(request, 'face_recognizer_app/support.html')
+	
 @login_required(login_url='/user_manager/login', redirect_field_name=None)
 def attendance(request):
 	attendance_create=Attendance(user=request.user,time=datetime.now(),present=True)
@@ -29,47 +46,7 @@ def view_attendance(request):
 
 
 
-# def download_excel_data(request):
-# 	# content-type of response
-# 	response = HttpResponse(content_type='application/ms-excel')
-
-# 	#decide file name
-# 	response['Content-Disposition'] = 'attachment; filename="Attendance.xls"'
-
-# 	#creating workbook
-# 	wb = xlwt.Workbook(encoding='utf-8')
-
-# 	#adding sheet
-# 	ws = wb.add_sheet("sheet1")
-
-# 	# Sheet header, first row
-# 	row_num = 0
-
-# 	font_style = xlwt.XFStyle()
-# 	# headers are bold
-# 	font_style.font.bold = True
-
-# 	#column header names, you can use your own headers here
-# 	columns = ['Name', 'Email', 'Date', 'Present', ]
-
-# 	#write column headers in sheet
-# 	for col_num in range(len(columns)):
-# 		ws.write(row_num, col_num, columns[col_num], font_style)
-
-# 	# Sheet body, remaining rows
-# 	font_style = xlwt.XFStyle()
-
-# 	#get your data, from database or from a text file...
 
 
 
-# 	attendance = Attendance.objects.filter(user=request.user)
-# 	for my_row in attendance:
-# 		row_num = row_num + 1
-# 		ws.write(row_num, 0, my_row.user.username, font_style)
-# 		ws.write(row_num, 1, my_row.user.email, font_style)
-# 		ws.write(row_num, 2, my_row.time, font_style)
-# 		ws.write(row_num, 3, my_row.present, font_style)
 
-# 	wb.save(response)
-# 	return response
