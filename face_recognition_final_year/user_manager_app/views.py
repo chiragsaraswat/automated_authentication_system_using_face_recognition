@@ -4,7 +4,6 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages 
 from django.contrib.auth.forms import AuthenticationForm 
 from .models import Attendance
-from datetime import datetime
 from django.http import HttpResponse
 
 # Create your views here.
@@ -34,7 +33,7 @@ def register_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			return redirect("face_recognizer_app:index")
+			return redirect("face_recognizer_app:add_photos")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm
 	return render (request=request, template_name="user_manager_app/register.html", context={"register_form":form})

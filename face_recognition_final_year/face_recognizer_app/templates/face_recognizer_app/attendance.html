@@ -38,10 +38,10 @@
     </nav>
 
     <div class="container">
-      <img  style="display: block; margin: auto;" class="img-fluid mt-2" src="{% static 'face_recognizer_app/images/support.svg' %}">
+      <img  style="display: block; margin: auto;" class="img-fluid mt-2" src="{% static 'face_recognizer_app/images/attendance.svg' %}">
       <h1 class="display-4 text-capitalize text-center">Attendance has been Marked For {{username}} at {{time}}</h1>
       <div class="text-center">
-        <a href="{% url 'face_recognizer_app:view_attendance'%}" class="btn btn-success text-center">View Attendance</a>
+        <a href="{% url 'face_recognizer_app:view_attendance'%}" class="btn btn-lg btn-outline-success text-center">View Attendance</a>
  
       </div>
          </div>

@@ -41,13 +41,17 @@
           <h1 class="display-4 text-center">View Report</h1>
         </div>
       </div>
+    
+      
    
       <div class="container">
+        <div class="text-center">
+          <a class="btn btn btn-success mb-4" href="{% url 'face_recognizer_app:csv_download'%}">Download Report</a>
+        </div>
         <table class="table">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Username</th>
                 <th scope="col">Email Address</th>
                 <th scope="col">Date/Time</th>
                 <th scope="col">Present</th>
@@ -57,8 +61,7 @@
                 {% for user in attendance  %}
                 <tr>
                     <th scope="row">{{user.id}}</th>
-                    <td>{{ user.user.username }}</td>
-                    <td>{{ user.user.email }}</td>
+                    <td>{{ user.email }}</td>
                     <td>{{user.time}}</td>
                     <td>{{ user.present }}</td>
                 </tr>

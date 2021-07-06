@@ -1,0 +1,57 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'face_recognizer_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'face_recognizer_app/css/style.css' %}">
+
+    <title>Automated Authentication Using Face Recognition</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'face_recognizer_app:index'%}">Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_manager_app:logout'%}">Logout</a>
+          </li>
+    
+          {% else %}
+    
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_manager_app:login'%}">Login</a>
+          </li>
+    
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <img  style="display: block; margin: auto;" class="img-fluid mt-2" src="{% static 'face_recognizer_app/images/photos_captured.svg' %}">
+      <h1 class="display-4 text-capitalize text-center">Your Photos Has been Captured !</h1>
+      <div class="text-center">
+        <a href="{% url 'face_recognizer_app:train'%}" class="btn btn-lg btn-outline-danger text-center">Train the model</a>
+ 
+      </div>
+         </div>
+    
+   
+          
+
+    <script src="{% static 'face_recognizer_app/js/jquery.js' %}"></script>
+    <script src="{% static 'face_recognizer_app/js/bootstrap.bundle.min.js' %}"></script> 
+
+   
+  </body>
+</html>
