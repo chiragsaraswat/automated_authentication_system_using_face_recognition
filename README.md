@@ -4,7 +4,7 @@
   <a href="https://github.com/chiragsaraswat/automated_authentication_using_face_recognition#ReadME" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-  <a href="https://github.com/kefranabg/readme-md-generator/graphs/commit-activity" target="_blank">
+  <a href="https://github.com/chiragsaraswat/automated_authentication_using_face_recognition/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/chiragsaraswat/automated_authentication_using_face_recognition/LICENSE" target="_blank">
@@ -16,7 +16,11 @@
 
 ### 🏠 [Homepage](https://github.com/chiragsaraswat/automated_authentication_using_face_recognition#ReadME)
 
-### ✨ [Demo](https://github.com/chiragsaraswat/automated_authentication_using_face_recognition#ReadME)
+## ✨ Demo
+<p align="center">
+  <img width="700" align="center" src="https://github.com/chiragsaraswat/automated_authentication_using_face_recognition/blob/0f06de8c213d5cbf20773841b19219217192735f/demo/demo.gif" alt="demo"/>
+</p>
+
 
 ## Install
 
@@ -54,7 +58,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [Chirag Saraswat](https://github.com/chiragsaraswat).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/chiragsaraswat/automated_authentication_using_face_recognition/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
