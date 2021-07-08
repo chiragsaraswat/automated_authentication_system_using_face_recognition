@@ -18,7 +18,7 @@
 
 ## ✨ Demo
 <p align="center">
-  <img width="700" align="center" src="https://github.com/chiragsaraswat/automated_authentication_using_face_recognition/blob/0f06de8c213d5cbf20773841b19219217192735f/demo/demo.gif" alt="demo"/>
+  <img width="700" align="center" src="https://github.com/chiragsaraswat/automated_authentication_system_using_face_recognition/blob/142e0c9ad48d060ecb15ea4a295afbef87c8bab2/demo/demo.gif" alt="demo"/>
 </p>
 
 
