@@ -16,7 +16,7 @@ def login_request(request):
 			password = form.cleaned_data.get('password')
 			user = authenticate(username=username, password=password)
 			if user is not None:
-				login(request, user)
+				login(request, user,backend='django.contrib.auth.backends.ModelBackend')
 				messages.info(request, f"You are now logged in as {username}.")
 				return redirect("face_recognizer_app:index")
 			else:
@@ -31,7 +31,7 @@ def register_request(request):
 		form = NewUserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			login(request, user)
+			login(request, user,backend='django.contrib.auth.backends.ModelBackend')
 			messages.success(request, "Registration successful." )
 			return redirect("face_recognizer_app:add_photos")
 		messages.error(request, "Unsuccessful registration. Invalid information.")

@@ -42,22 +42,50 @@
     </nav>
    
       <div class="container">
+        {% if username %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Welcome <strong>{{username}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
         <h1 class="display-4 text-center mb-5"> Automated Authentication System Using Face Recognition</h1>
-        <div class="row text-center" style="display: flex; justify-content: center; align-items: center; min-height: 500px; margin: auto;">
-    
-            
-                <div class="card py-3" style="width: 500px;">
-                    <div class="card-body text-center">
-                      <h2 class="text-center dash-title">Authenticate</h2>
-                      <img width="200" style="display: block; margin: auto;" class="home_images my-5" src="{% static 'face_recognizer_app/images/authenticate.svg' %}">
-                      <a href="{% url 'face_recognizer_app:attendance'%}" class="btn btn-outline-success">Authenticate via Face</a>
-                      <p class="mt-3">Can Use Face Authentication? <a href="{% url 'user_manager_app:login'%}">Login via Password</a></p>
+        
+        <div class="row mb-5">
+            <div class="col-md-6" style="margin: auto;">
+                <div class="card">
+                    <div class="card-body">
+                      <h2 class="text-center dash-title">View Report</h2>
+                      <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/report.svg' %}">
+                      <a href="{% url 'face_recognizer_app:view_attendance'%}" class="btn btn-outline-danger btn-block">View</a>
                     </div>
                   </div>
+            </div>
             
-          
+
         </div>
-        
+        <div class="row">
+           
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                    <h2 class="text-center dash-title">Register</h2>
+                    <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/register.svg' %}">
+                    <a href="{% url 'user_manager_app:register'%}" class="btn btn-outline-warning btn-block">Register</a>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                  <h2 class="text-center dash-title">Support</h2> 
+                  <img width="180" height="180" style="display: block; margin: auto;" class="home_images" src="{% static 'face_recognizer_app/images/help.svg' %}">
+                  <a href="{% url 'face_recognizer_app:support'%}" class="btn btn-outline-primary btn-block">Support</a>
+                </div>
+              </div>
+        </div>
+      </div>
 
         <h3 class="text-center mt-2">Departement of Computer Science & Application, B.S.A.C.E.T</h3>
 

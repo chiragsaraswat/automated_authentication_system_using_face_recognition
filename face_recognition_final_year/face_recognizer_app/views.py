@@ -31,6 +31,7 @@ import math
 import csv
 from dateutil import tz
 import shutil
+from django.contrib.auth import login, authenticate, logout
 
 
 
@@ -219,7 +220,7 @@ def predict(face_aligned,svc,threshold=0.7):
 
 @login_required(login_url='/user_manager/login', redirect_field_name=None)
 def add_photos(request):
-	username = request.user.email
+	username = request.user.username
 	print("username",username)
 	create_dataset(username)
 	messages.success(request, f'Dataset Created')
@@ -329,7 +330,14 @@ def mark_your_attendance(request):
 			attendance_create.save()
 			if count > 0:
 				break
-	return render(request, 'face_recognizer_app/attendance.html',{'username':username, 'time':datetime.datetime.now()})
+	user = authenticate(username=username)
+	if user is not None:
+		login(request, user)
+		print(f"user is {user}")
+	login(request,user,backend='django.contrib.auth.backends.ModelBackend')
+	context = {'username':username, 'time':datetime.datetime.now()}
+	return render(request=request, template_name="face_recognizer_app/index_.html", context=context )
+	# return render(request, 'face_recognizer_app/index.html',)
 
 
 
